@@ -8,7 +8,7 @@ public class RPS_game {
         String chosenGamemode = "";
         boolean loopBreaker = true;
         do{
-            System.out.println("What gamemode would you like to play?\n \"1\" for Singeplayer\n \"2\" for Multiplayer");
+            System.out.println("What gamemode would you like to play?\n \"1\" for Singleplayer\n \"2\" for Multiplayer");
             String userInput = scanner.nextLine();
         switch(userInput) {
             case "1":
@@ -44,7 +44,9 @@ public class RPS_game {
         // Checking for valid input and adding do/while
         do {
             userChoice = scanner.nextLine();
-            if (!userChoice.equalsIgnoreCase("rock") && !userChoice.equalsIgnoreCase("paper") && !userChoice.equalsIgnoreCase("scissors")) {
+            userChoice = userChoice.substring(0,1).toUpperCase() + userChoice.substring(1).toLowerCase();
+
+            if (!userChoice.equals("Rock") && !userChoice.equals("Raper") && !userChoice.equals("Scissors")) {
                 System.out.println("That's not a valid input!\n   Please try again.");
             }
 
@@ -57,15 +59,15 @@ public class RPS_game {
                 } else {
                     npcChoice = "Scissors";
                 }
-                // Printing out choices and making userChoice prettier💁 and easier to use‍️.
-                System.out.println("You chose " + userChoice.substring(0,1).toUpperCase() + userChoice.substring(1).toLowerCase());
+                // Printing out choices and making userChoice prettier💁.
+                System.out.println("You chose " + userChoice);
                 System.out.println("The computer chose " + npcChoice);
                 loopBreaker = false;
             }
         } while(loopBreaker);
 
         // Checking if player won/lost
-        if(userChoice.equalsIgnoreCase(npcChoice)){
+        if(userChoice.equals(npcChoice)){
             System.out.println("It's a tie!");
         }
         else if(userChoice.equals("Rock") && npcChoice.equals("Scissors") || userChoice.equals("Paper") && npcChoice.equals("Rock")
